@@ -1,0 +1,65 @@
+
+#root_admin
+    display: flex
+    justify-content: space-around
+    margin-top: 2rem
+    flex-direction: column
+    align-items: center
+    width: 100vw
+    flex-wrap: wrap
+    #form_swaper
+        display: flex
+        justify-content: center
+        align-items: center
+        position: relative
+        height: 105vh
+        width: 35rem
+        overflow: hidden
+        form
+            transition: all 0.2s ease-in-out
+            position: absolute
+            top: 5%
+            opacity: 0
+            pointer-events: none
+            background: #fff
+
+        .form_active
+            z-index: 2
+            opacity: 1
+            pointer-events: auto
+            opacity: 1
+            .materiaux_label
+                width: 7rem
+                margin-right: 4rem
+    #switcher_form
+        display: flex
+        justify-content: flex-start
+        align-content: center
+        max-width: 38rem
+        overflow-x: scroll
+        overflow-y: hidden
+        .to
+            padding: 0.8rem 1rem
+            background: transparent
+            color: #292929
+            border-radius: 0.2rem 0.2rem 0 0
+            font-family: Sora_R
+            border-bottom: 2px solid #041953
+            font-size: 1rem
+            display: flex
+            align-items: center
+            justify-content: center
+            min-width: 10rem
+            cursor: pointer
+            text-align: center
+            transition: all 0.2s ease-in-out
+            &:hover
+                background: #041953
+                color: #fff
+
+        .to_selected
+            background: #5289c0
+            color: #fff
+            border-bottom: 2px solid #5289c0
+            &:hover
+                background: #5289c0

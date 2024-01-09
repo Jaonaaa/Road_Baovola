@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data</title>
+    <link rel="stylesheet" href="./assets/style/index.css" />
+    <link rel="stylesheet" href="./assets/style/admin/adminList.css" />
+    <link rel="stylesheet" href="./assets/fontawesome-5/css/all.min.css" />
+  </head>
+  <body>
+    <div id="root">
+      <div class="ham" id="logo-btn">
+        <img src="./assets/svg/ham.svg" alt="ham icon" />
+      </div>
+      <div class="title_list">Search Road</div>
+      <form action="" method="get" id="search_form">
+        <div class="row">
+          <label for="min">Min </label>
+          <input type="number" id="min" name="min" required />
+        </div>
+        <div class="row">
+          <label for="price">Max </label>
+          <input type="number" id="max" name="max" required />
+        </div>
+        <button>Valider</button>
+      </form>
+      <div id="list_result">
+        <table id="table_result"></table>
+      </div>
+    </div>
+    <script src="/js/Admin/AdminSearch.js" type="module"></script>
+  </body>
+</html>

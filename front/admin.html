@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+    <link rel="stylesheet" href="./assets/style/index.css" />
+    <link rel="stylesheet" href="./assets/style/admin/admin.css" />
+    <link rel="stylesheet" href="./assets/fontawesome-5/css/all.min.css" />
+  </head>
+  <body>
+    <div id="root_admin">
+      <div class="ham" id="logo-btn">
+        <img src="./assets/svg/ham.svg" alt="ham icon" />
+      </div>
+
+      <div id="switcher_form">
+        <div class="to to_selected" idForm="type_form">Types</div>
+        <div class="to" idForm="material_form">Material</div>
+        <div class="to" idForm="type_material_form">Material & Types</div>
+        <div class="to" idForm="quality_form">Quality</div>
+        <div class="to" idForm="road_quality_form">Quality & Types</div>
+        <div class="to" idForm="size_form">Size</div>
+        <div class="to" idForm="road_type_quality_materiaux_form">Types & Quality & Materiaux</div>
+        <div class="to" idForm="price_material">Add Price to Material</div>
+      </div>
+
+      <div id="form_swaper">
+        <form id="quality_form" action="" method="post">
+          <div class="title">Add quality</div>
+          <div class="row">
+            <label for="name_quality">Name</label>
+            <input type="text" id="name_quality" name="name" required />
+          </div>
+          <button>Add</button>
+        </form>
+
+        <form id="road_quality_form" action="" method="post">
+          <div class="title">Add Road type quality</div>
+          <div class="row">
+            <label for="name_road_type_quality">Type</label>
+            <select id="type_road"></select>
+          </div>
+          <div class="row">
+            <label for="name_road_type_quality">Quality</label>
+            <select id="quality_road"></select>
+          </div>
+          <div class="row">
+            <label for="time_m_square">Time / m²</label>
+            <input type="number" required name="time_m_square" id="time_m_square" />
+          </div>
+          <button>Add</button>
+        </form>
+
+        <form id="type_form" class="form_active" action="" method="post">
+          <div class="title">Add Road type</div>
+          <div class="row">
+            <label for="name_type">Name</label>
+            <input type="text" id="name_type" name="name" required />
+          </div>
+          <button>Add</button>
+        </form>
+
+        <form id="material_form" action="" method="post">
+          <div class="title">Add Material</div>
+          <div class="row">
+            <label for="name_material">Name</label>
+            <input type="text" id="name_material" name="name" required />
+          </div>
+          <button text="Add">Add</button>
+        </form>
+
+        <form id="type_material_form" action="" method="post">
+          <div class="title">Add Material to type</div>
+          <div class="row">
+            <label for="">Type</label>
+            <select id="types" name="name" required></select>
+          </div>
+          <div class="row">
+            <label for="materials">Material </label>
+            <div class="types list" id="materials"></div>
+          </div>
+          <button>Add</button>
+        </form>
+
+        <form id="size_form" action="" method="post">
+          <div class="title">Add Size</div>
+          <div class="row">
+            <label for="name_size">Size name</label>
+            <input type="text" id="name_size" name="name" required />
+          </div>
+
+          <button>Add</button>
+        </form>
+
+        <form id="road_type_quality_materiaux_form" action="" method="post">
+          <div class="title">Add Quantity / Type & Quality</div>
+          <div class="row">
+            <label for="">Type Road</label>
+            <select id="types_road" name="name" required></select>
+          </div>
+          <div class="row">
+            <label for="">Quality </label>
+            <select id="quality_road" name="quality" required></select>
+          </div>
+          <div class="row">
+            <label for="">Size </label>
+            <select id="size_road" name="size" required></select>
+          </div>
+          <div class="row">
+            <label for="">Materiaux </label>
+            <div id="list_select_materiaux">
+              <div class="row">
+                <div class="materiaux_label">Sable</div>
+                <div class="qt">
+                  <input type="number" name="qt" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button>Validate</button>
+        </form>
+
+        <form id="price_material" action="" method="post">
+          <div class="title">Add Price to Mayterial</div>
+
+          <div class="row">
+            <label for="materials">Material </label>
+            <select class="types list" id="materials_price"></select>
+          </div>
+          <div class="row">
+            <label for="price">Price</label>
+            <input type="number" id="price" name="price" required />
+          </div>
+          <button>Add</button>
+        </form>
+      </div>
+    </div>
+  </body>
+  x
+  <script type="module" src="./js/Admin/admin.js"></script>
+</html>

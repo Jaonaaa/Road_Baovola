@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Road</title>
+    <link rel="stylesheet" href="./assets/style/index.css" />
+    <link rel="stylesheet" href="./assets/fontawesome-5/css/all.min.css" />
+  </head>
+  <body>
+    <div id="root">
+      <div class="ham" id="logo-btn">
+        <img src="./assets/svg/ham.svg" alt="ham icon" />
+      </div>
+
+      <form action="validation.jsp" id="getPave" method="post">
+        <h2 class="title">Construct road</h2>
+
+        <!-- <div class="row">
+          <label for="type">Surface </label>
+          <input type="numeric" />
+        </div> -->
+        <div class="row">
+          <label for="type">Type de route </label>
+          <select name="type" id="types"></select>
+        </div>
+
+        <button type="submit">Suivant</button><br />
+      </form>
+      <div id="result"></div>
+    </div>
+
+    <script type="module" src="./js/client.js"></script>
+  </body>
+</html>

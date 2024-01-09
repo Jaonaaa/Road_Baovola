@@ -1,0 +1,49 @@
+@import './all/all.sass'
+@import './all/Navbar/Navbar'
+
+@font-face
+    font-family: Poppins_L
+    src: url(../fonts/Poppins-Light.ttf)
+
+@font-face
+    font-family: Sora_R
+    src: url(../fonts/Sora-Regular.ttf)
+
+*
+    font-family: Poppins_L
+body
+    overflow-x: hidden
+#root
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    width: 100vw
+    min-height: 100vh
+    flex-direction: column
+
+::-webkit-scrollbar
+    display: none
+
+table
+    width: 100%
+    border-collapse: collapse
+    margin-bottom: 20px
+
+th
+    background-color: #3498db
+    color: #fff
+    padding: 1rem 2rem
+    text-align: left
+
+td
+    padding: 10px
+    border: 1px solid #ddd
+
+.highlight
+    font-weight: bold
+    color: #e74c3c
+
+#list_result
+    margin-top: 5rem
+    width: 60vw
+    margin-bottom: 5rem
