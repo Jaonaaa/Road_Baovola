@@ -15,6 +15,7 @@ import com.project.s5.models.Materiaux;
 import com.project.s5.models.PriceMateriaux;
 import com.project.s5.models.Type;
 import com.project.s5.repository.MateriauxRepo;
+import com.project.s5.repository.PriceMateriauxRepo;
 import com.project.s5.repository.TypeRepo;
 import com.project.s5.service.MateriauxService;
 import com.project.s5.service.RoadService;
@@ -30,6 +31,7 @@ public class MateriauxController {
     private final TypeRepo typeRepo;
     private final RoadService roadService;
     private final MateriauxService materiauxService;
+    private final PriceMateriauxRepo priceMateriauxRepo;
 
     @GetMapping
     private Status getMaterial() {
@@ -46,6 +48,16 @@ public class MateriauxController {
         try {
             List<Type> types = typeRepo.findAll();
             return Status.builder().status("ok").data(types).build();
+        } catch (Exception e) {
+            return Status.builder().details(e.getMessage()).status("error").build();
+        }
+    }
+
+    @GetMapping("/price")
+    private Status getMaterialPrice() {
+        try {
+            List<PriceMateriaux> mateials = priceMateriauxRepo.findAll();
+            return Status.builder().details("Material").status("ok").data(mateials).build();
         } catch (Exception e) {
             return Status.builder().details(e.getMessage()).status("error").build();
         }

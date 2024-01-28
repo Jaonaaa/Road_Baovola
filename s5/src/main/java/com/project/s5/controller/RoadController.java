@@ -79,6 +79,16 @@ public class RoadController {
         }
     }
 
+    // get all road type quality
+    @GetMapping("/type_quality")
+    private Status getAllRoadTypeQuality() {
+        try {
+            return Status.builder().data(roadService.getAllRoadTypeQuality()).status("ok").build();
+        } catch (Exception e) {
+            return Status.builder().details(e.getMessage()).status("error").build();
+        }
+    }
+
     // select tout les materaux utilisé pour une type de route
     @GetMapping("/type_materiaux/{id}")
     private Status getMaterialType(@PathVariable(name = "id") Long id_type) {

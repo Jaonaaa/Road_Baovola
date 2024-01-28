@@ -3,58 +3,69 @@ import { createHider } from "../utils/Hider.js";
 var navbar;
 let datas = [
   { type: "logo", src: "" },
-  { type: "titleSection", name: "Client" },
+  { type: "titleSection", name: "Features" },
   {
     type: "singleLink",
-    name: "Home",
-    icon: "fas fa-home",
+    name: "Part 0 / Composition",
+    icon: "fas fa-coins",
     link: "/",
     move: true,
   },
-  {
-    type: "multiLink",
-    name: "Services",
-    icon: "fas fa-cubes",
-    links: [
-      {
-        name: "Affichage ",
-        link: "buyService",
-        move: true,
-        idService: "Service0001",
-      },
-    ],
-  },
-  {
-    type: "multiLink",
-    name: "People",
-    icon: "fas fa-child",
-    links: [
-      { name: "Personnel", link: "showBasket", move: true },
-      { name: "Client", link: "clearBasket", move: true },
-      { name: "Candidat", link: "listCandidat", move: true },
-    ],
-  },
 
-  { type: "titleSection", name: "Admin" },
   {
     type: "singleLink",
-    name: "Add",
+    name: "Part 1 / Road material",
     icon: "fas fa-coins",
     link: "admin.html",
     move: true,
   },
   {
     type: "singleLink",
-    name: "List",
+    name: "Part 2 / Liste ",
     icon: "fas fa-coins",
     link: "adminList.html",
     move: true,
   },
   {
     type: "singleLink",
-    name: "Search",
+    name: "Part 3 / Search min / max",
     icon: "fas fa-coins",
     link: "adminSearch.html",
+    move: true,
+  },
+  {
+    type: "singleLink",
+    name: "Part 4 /  Stock & Achat ",
+    icon: "fas fa-coins",
+    link: "stock.html",
+    move: true,
+  },
+  {
+    type: "singleLink",
+    name: "Part 5 / Prix Vente & Add",
+    icon: "fas fa-coins",
+    link: "outils.html",
+    move: true,
+  },
+  {
+    type: "singleLink",
+    name: "Part 6 / Add employe & Grades",
+    icon: "fas fa-coins",
+    link: "employer.html",
+    move: true,
+  },
+  {
+    type: "singleLink",
+    name: "Part 7 / Entreprise",
+    icon: "fas fa-coins",
+    link: "next.html",
+    move: true,
+  },
+  {
+    type: "singleLink",
+    name: "stat",
+    icon: "fas fa-coins",
+    link: "stat.html",
     move: true,
   },
 ];
@@ -63,7 +74,6 @@ let datas = [
 export function setUpNavbar() {
   let btn = document.getElementById("logo-btn");
   btn.addEventListener("click", () => {
-    console.log("Clicked");
     createNavBar();
   });
 }
@@ -88,7 +98,6 @@ function setUpLinkedList() {
 
     if (linksP != "undefined") {
       link.addEventListener("click", () => {
-        console.log("Clicked");
         if (moveState == "true") {
           window.location = linksP;
         } else {

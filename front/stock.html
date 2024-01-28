@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+    <link rel="stylesheet" href="./assets/style/index.css" />
+    <link rel="stylesheet" href="./assets/style/admin/admin.css" />
+    <link rel="stylesheet" href="./assets/fontawesome-5/css/all.min.css" />
+  </head>
+  <body>
+    <div id="root_admin">
+      <div class="ham" id="logo-btn">
+        <img src="./assets/svg/ham.svg" alt="ham icon" />
+      </div>
+
+      <div id="switcher_form">
+        <div class="to to_selected" idForm="add_stock">Add Stock</div>
+        <div class="to" idForm="list_stock">List stock</div>
+        <div class="to" idForm="buy_road">Buy road</div>
+        <div class="to" idForm="add_supplier">Add supplier</div>
+      </div>
+
+      <div id="form_swaper">
+        <form id="add_stock" class="form_active" action="" method="post">
+          <div class="title">Add Stock</div>
+          <div class="row">
+            <label for="materials">Material </label>
+            <select class="types list" id="materials_stock"></select>
+          </div>
+          <div class="row">
+            <label for="materials">Supplier </label>
+            <select class="types list" id="supplier_stock"></select>
+          </div>
+          <div class="row">
+            <label for="quantity_stock">Quantity</label>
+            <input type="numeric" id="quantity_stock" name="quantity_stock" required />
+          </div>
+          <button>Add</button>
+        </form>
+
+        <form id="list_stock" action="" method="post">
+          <div class="list" id="list_stock_container"></div>
+        </form>
+
+        <form id="buy_road" action="" method="post">
+          <div class="title">Buy Road</div>
+          <div class="row">
+            <label for="roads_types">Roads : </label>
+            <select class="types list" id="roads_types"></select>
+          </div>
+          <div class="row">
+            <label for="entreprises">Entreprise : </label>
+            <select class="types list" id="entreprises"></select>
+          </div>
+          <div class="row">
+            <label for="quantity_road_to_buy"> Quantity </label>
+            <input type="number" id="quantity_road_to_buy" name="quantity_road_to_buy" required />
+          </div>
+          <button>Buy</button>
+        </form>
+
+        <form id="add_supplier" action="" method="post">
+          <div class="title">Add Supplier</div>
+          <div class="row">
+            <label for="name_supplier">Name</label>
+            <input type="text" id="name_supplier" name="name_supplier" required />
+          </div>
+          <button>Add</button>
+        </form>
+      </div>
+    </div>
+  </body>
+  x
+  <script type="module" src="./js/Admin/stock.js"></script>
+</html>

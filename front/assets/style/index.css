@@ -201,8 +201,9 @@ form button {
   border-radius: 0.2rem;
   background-color: white;
   width: auto;
+  min-width: 65vw;
   box-sizing: border-box;
-  padding: 1rem 0rem 0.8rem 0rem;
+  padding: 0rem 0rem 0rem 0rem;
   height: auto;
   z-index: 7;
 }
@@ -422,19 +423,21 @@ body {
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 20px;
+  margin: 0rem auto;
 }
 
 th {
-  background-color: #3498db;
+  background-color: #204169;
   color: #fff;
   padding: 1rem 2rem;
   text-align: left;
+  white-space: nowrap;
 }
 
 td {
-  padding: 10px;
+  padding: 1rem 2rem;
   border: 1px solid #ddd;
+  white-space: nowrap;
 }
 
 .highlight {
@@ -444,6 +447,8 @@ td {
 
 #list_result {
   margin-top: 5rem;
-  width: 60vw;
+  min-width: 60vw;
+  width: -moz-fit-content;
+  width: fit-content;
   margin-bottom: 5rem;
 }/*# sourceMappingURL=index.css.map */

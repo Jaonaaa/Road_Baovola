@@ -46,6 +46,10 @@ public class RoadService {
         return sizeRoadRepo.findAll();
     }
 
+    public List<RoadTypeQuality> getAllRoadTypeQuality() {
+        return roadTypeQualityRepo.findAll();
+    }
+
     // ADD
     public void addTimeQualityType(TimeRoad timeRoad) {
         Optional<TimeRoad> timeRoadExisting = timeRoadRepo.findFirstByQualityAndType(timeRoad.getQuality(),

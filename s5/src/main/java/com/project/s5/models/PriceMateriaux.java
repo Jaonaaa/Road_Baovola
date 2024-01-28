@@ -40,4 +40,5 @@ public class PriceMateriaux {
 
     @Column(name = "unit", nullable = false, unique = false)
     Double unit;
+
 }

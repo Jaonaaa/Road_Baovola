@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Next</title>
+    <link rel="stylesheet" href="./assets/style/index.css" />
+    <link rel="stylesheet" href="./assets/style/admin/admin.css" />
+    <link rel="stylesheet" href="./assets/fontawesome-5/css/all.min.css" />
+  </head>
+  <body>
+    <div id="root_admin">
+      <div class="ham" id="logo-btn">
+        <img src="./assets/svg/ham.svg" alt="ham icon" />
+      </div>
+
+      <div id="switcher_form">
+        <div class="to to_selected" idForm="add_emp">Add Employer</div>
+        <div class="to" idForm="form_grade">Add Grades</div>
+      </div>
+
+      <div id="form_swaper">
+        <form id="form_grade" action="" method="post">
+          <div class="title">Add Grade</div>
+          <div class="row">
+            <label for="name_grade">Name</label>
+            <input type="text" id="name_grade" name="name" required />
+          </div>
+          <div class="row">
+            <label for="upgrade_salaire">Upgrade salaire : </label>
+            <input type="number" id="upgrade_salaire" name="upgrade_salaire" required />
+          </div>
+          <div class="row">
+            <label for="upgrade_after">Upgrade after : </label>
+            <input type="number" id="upgrade_after" name="name" required />
+          </div>
+          <button>Add</button>
+        </form>
+
+        <form id="add_emp" action="" method="post" class="form_active">
+          <div class="title">Add Employer</div>
+          <div class="row">
+            <label for="name_emp">Name</label>
+            <input type="text" required name="name_emp" id="name_emp" />
+          </div>
+          <div class="row">
+            <label for="outils_list">Type</label>
+            <select id="outils_list"></select>
+          </div>
+
+          <div class="row">
+            <label for="date_embauche">Date d'embauche</label>
+            <input type="date" required name="date_embauche" id="date_embauche" />
+          </div>
+          <button>Add</button>
+        </form>
+      </div>
+    </div>
+  </body>
+  x
+  <script type="module" src="./js/Admin/employer.js"></script>
+</html>
