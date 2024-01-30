@@ -5,7 +5,6 @@
   flex-direction: column;
   align-items: center;
   width: 100vw;
-  flex-wrap: wrap;
 }
 #root_admin #form_swaper {
   display: flex;

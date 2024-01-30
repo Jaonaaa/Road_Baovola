@@ -58,16 +58,23 @@ let datas = [
     type: "singleLink",
     name: "Part 7 / Entreprise",
     icon: "fas fa-coins",
-    link: "next.html",
+    link: "entreprise.html",
     move: true,
   },
   {
     type: "singleLink",
-    name: "stat",
+    name: "Statistique",
     icon: "fas fa-coins",
     link: "stat.html",
     move: true,
   },
+  // {
+  //   type: "singleLink",
+  //   name: "NEXT",
+  //   icon: "fas fa-coins",
+  //   link: "next.html",
+  //   move: true,
+  // },
 ];
 //set UP THE NAVBAR btn here =>
 

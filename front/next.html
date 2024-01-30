@@ -3,12 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Next</title>
+    <title>Admin</title>
     <link rel="stylesheet" href="./assets/style/index.css" />
     <link rel="stylesheet" href="./assets/style/admin/admin.css" />
-    <link rel="stylesheet" href="./assets/style/admin/graph.css" />
     <link rel="stylesheet" href="./assets/fontawesome-5/css/all.min.css" />
-    <script src="./js/chart.umd.min.js"></script>
   </head>
   <body>
     <div id="root_admin">
@@ -17,37 +15,86 @@
       </div>
 
       <div id="switcher_form">
-        <div class="to to_selected" idForm="add_entreprise">Add Entreprise</div>
-        <div class="to" idForm="form_add_type_entreprise">Add Type Entreprise</div>
+        <div class="to to_selected" idForm="add_employe">Add Job</div>
+        <div class="to" idForm="add_selling_price">Add Selling price</div>
+        <div class="to" idForm="add_outils_size">Add Employe By Size</div>
+        <div class="to" idForm="add_time_quality">Add Time Quality</div>
+        <div class="to" idForm="add_main_oeuvre">Add Main oeuvre</div>
       </div>
 
       <div id="form_swaper">
-        <form id="form_add_type_entreprise" action="" method="post">
-          <div class="title">Add Type Enterprise</div>
-          <div class="row">
-            <label for="name_type_ent">Name</label>
-            <input type="text" id="name_type_ent" name="name" required />
-          </div>
+        <form id="add_employe" class="form_active" action="" method="post">
+          <div class="title">Add Job</div>
 
+          <div class="row">
+            <label for="job_outil">Job </label>
+            <input type="numeric" id="job_outil" name="job_outil" required />
+          </div>
+          <div class="row">
+            <label for="salaire_outil">Salaire</label>
+            <input type="numeric" id="salaire_outil" name="salaire_outil" required />
+          </div>
           <button>Add</button>
         </form>
 
-        <form id="add_entreprise" action="" method="post" class="form_active">
-          <div class="title">Add Enterprise</div>
+        <form id="add_selling_price" action="" method="post">
+          <div class="title">Add Selling Price</div>
           <div class="row">
-            <label for="name_entre">Name</label>
-            <input type="text" required name="name_entre" id="name_entre" />
+            <label for="roads_types_selling">Roads : </label>
+            <select class="types list" id="roads_types_selling"></select>
           </div>
           <div class="row">
-            <label for="entreprises_types">Type : </label>
-            <select class="types list" id="entreprises_types"></select>
+            <label for="selling_price">Selling Price</label>
+            <input type="numeric" id="selling_price" name="selling_price" required />
           </div>
+          <button>Add</button>
+        </form>
 
+        <form id="add_outils_size" action="" method="post">
+          <div class="title">Add employe by size</div>
+          <div class="row">
+            <label for="roads_size_outils">Size : </label>
+            <select class="types list" id="roads_size_outils"></select>
+          </div>
+          <div class="row">
+            <label for="number_outils"> Number </label>
+            <input type="number" id="number_outils" name="number_outils" required />
+          </div>
+          <button>Add</button>
+        </form>
+
+        <form id="add_time_quality" action="" method="post">
+          <div class="title">Add Time Quality</div>
+          <div class="row">
+            <label for="quality_road">Quality</label>
+            <select class="types list" id="quality_road"></select>
+          </div>
+          <div class="row">
+            <label for="time_quality"> Time / h </label>
+            <input type="number" id="time_quality" name="time_quality" required />
+          </div>
+          <button>Add</button>
+        </form>
+
+        <form id="add_main_oeuvre" action="" method="post">
+          <div class="title">Add Main oeuvre</div>
+          <div class="row">
+            <label for="road_main_oeuvre">Road</label>
+            <select class="types list" id="road_main_oeuvre"></select>
+          </div>
+          <div class="row">
+            <label for="employer_main_oeuvre">Employer</label>
+            <select class="types list" id="employer_main_oeuvre"></select>
+          </div>
+          <div class="row">
+            <label for="time_main_oeuvre"> Temps'de travail (1= 1h) </label>
+            <input type="text" id="time_main_oeuvre" name="time_main_oeuvre" required />
+          </div>
           <button>Add</button>
         </form>
       </div>
     </div>
   </body>
-
+  x
   <script type="module" src="./js/temp/next.js"></script>
 </html>

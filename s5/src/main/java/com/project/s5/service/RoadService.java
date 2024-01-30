@@ -116,10 +116,19 @@ public class RoadService {
                 for (RoadStruct roadS : roadStructs) {
                     if (roadS.getQuantity() < 0)
                         throw new RuntimeException("Quantity can't be negative");
-                    RoadMateriaux roadMateriaux = roadMateriauxRepo
-                            .findFirstByRoadTypeQualityAndMateriaux(road, roadS.getMateriaux()).get();
-                    roadMateriaux.setQuantity(roadS.getQuantity());
-                    roadMateriauxRepo.save(roadMateriaux);
+                    Optional<RoadMateriaux> ro = roadMateriauxRepo
+                            .findFirstByRoadTypeQualityAndMateriaux(road, roadS.getMateriaux());
+                    if (ro.isPresent()) {
+                        RoadMateriaux roadMateriaux = ro.get();
+                        roadMateriaux.setQuantity(roadS.getQuantity());
+                        roadMateriauxRepo.save(roadMateriaux);
+                    } else {
+                        RoadMateriaux roadMateriaux = RoadMateriaux.builder().materiaux(roadS.getMateriaux())
+                                .quantity(roadS.getQuantity())
+                                .roadTypeQuality(road).build();
+                        roadMateriauxRepo.save(roadMateriaux);
+                    }
+                    //
                 }
             }
             ///

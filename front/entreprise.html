@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Next</title>
+    <link rel="stylesheet" href="./assets/style/index.css" />
+    <link rel="stylesheet" href="./assets/style/admin/admin.css" />
+    <link rel="stylesheet" href="./assets/style/admin/graph.css" />
+    <link rel="stylesheet" href="./assets/fontawesome-5/css/all.min.css" />
+    <script src="./js/chart.umd.min.js"></script>
+  </head>
+  <body>
+    <div id="root_admin">
+      <div class="ham" id="logo-btn">
+        <img src="./assets/svg/ham.svg" alt="ham icon" />
+      </div>
+
+      <div id="switcher_form">
+        <div class="to to_selected" idForm="add_entreprise">Add Entreprise</div>
+        <div class="to" idForm="form_add_type_entreprise">Add Type Entreprise</div>
+      </div>
+
+      <div id="form_swaper">
+        <form id="form_add_type_entreprise" action="" method="post">
+          <div class="title">Add Type Enterprise</div>
+          <div class="row">
+            <label for="name_type_ent">Name</label>
+            <input type="text" id="name_type_ent" name="name" required />
+          </div>
+
+          <button>Add</button>
+        </form>
+
+        <form id="add_entreprise" action="" method="post" class="form_active">
+          <div class="title">Add Enterprise</div>
+          <div class="row">
+            <label for="name_entre">Name</label>
+            <input type="text" required name="name_entre" id="name_entre" />
+          </div>
+          <div class="row">
+            <label for="entreprises_types">Type : </label>
+            <select class="types list" id="entreprises_types"></select>
+          </div>
+
+          <button>Add</button>
+        </form>
+      </div>
+    </div>
+  </body>
+
+  <script type="module" src="./js/temp/entreprise.js"></script>
+</html>

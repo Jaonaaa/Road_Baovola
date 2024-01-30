@@ -26,4 +26,13 @@ public class VenteController {
             return Status.builder().details(e.getMessage()).status("error").build();
         }
     }
+
+    @GetMapping("/benefices")
+    private Status getAllBenefice() {
+        try {
+            return Status.builder().data(priceService.getRoadsBenefice()).status("ok").build();
+        } catch (Exception e) {
+            return Status.builder().details(e.getMessage()).status("error").build();
+        }
+    }
 }

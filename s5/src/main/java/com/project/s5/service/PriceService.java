@@ -49,6 +49,25 @@ public class PriceService {
         return roadsBetween;
     }
 
+    public List<RoadPriced> getRoadsBenefice() {
+        List<RoadTypeQuality> roads = roadTypeQualityRepo.findAll();
+        List<RoadPriced> roadsBetween = new Vector<RoadPriced>();
+
+        for (RoadTypeQuality road : roads) {
+            Double[] price = getBenefice(road);
+            System.out.println(road.getId());
+            Double benefice = price[4];
+
+            roadsBetween.add(RoadPriced.builder().roadTypeQuality(road).price(benefice)
+                    .prix_matiere_premiere(price[0]).prix_employer(price[1]).prix_de_revient(price[2])
+                    .prix_de_vente(price[3])
+                    .benefice(benefice)
+                    .build());
+        }
+
+        return roadsBetween;
+    }
+
     public Double[] getBenefice(RoadTypeQuality roadTypeQuality) {
         Double[] prixDeRevient = getPrixDeRevient(roadTypeQuality);
         Optional<PriceVente> priceVente = priceVenteRepo.findFirstByRoadTypeQuality(roadTypeQuality);

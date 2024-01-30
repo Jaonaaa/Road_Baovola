@@ -1,13 +1,9 @@
 import { setUpNavbar } from "../components/Navbar.js";
-import { createSidePopUp } from "../utils/PopUp.js";
-import { get, send } from "../utils/fetchers.js";
-import { handleSwitcher } from "../components/SwitcherFormAdmin.js";
+import { get } from "../utils/fetchers.js";
 
 setUpNavbar();
 handleFilter();
 getAll();
-// handleFormEmployer();
-// handleGrade();
 
 async function handleFilter() {
   let filter_box = document.getElementById("filter");
@@ -48,7 +44,7 @@ function buildChart(datas) {
       labels: types,
       datasets: [
         {
-          label: "# of Votes",
+          label: "Quantité",
           data: filtredData,
           borderWidth: 1,
         },
@@ -74,9 +70,9 @@ function getAll() {
   let btn = document.querySelector(".all");
   btn.addEventListener("click", async () => {
     let datas = await get("client/stats");
-    console.log(datas);
-    let list = document.querySelector(".list_tab");
-    list.innerHTML = "";
+    // console.log(datas);
+    cleanTable();
+    cleanChart();
     datas.data.forEach((dat) => {
       buildChart(dat);
       buildTable(dat);
@@ -86,6 +82,10 @@ function getAll() {
 function cleanChart() {
   let box = document.querySelector(".list_graph");
   box.innerHTML = "";
+}
+function cleanTable() {
+  let list = document.querySelector(".list_tab");
+  list.innerHTML = "";
 }
 async function getDataItem(idRoadtypeQuality) {
   let datas = await get("client/stat/" + idRoadtypeQuality);

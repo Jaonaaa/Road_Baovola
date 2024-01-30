@@ -2,13 +2,14 @@
   font-size: 2rem;
   width: 100%;
   font-weight: bolder;
-  margin: 1rem 0 2rem 5rem;
+  margin: 1rem 0 2rem 0rem;
 }
 
 .filter {
   display: flex;
   align-items: center;
   width: 80%;
+  justify-content: space-around;
   margin-bottom: 2rem;
 }
 .filter .filter_item {
@@ -178,4 +179,25 @@
   border: none !important;
   margin-right: 0 !important;
   margin-bottom: 0.8rem !important;
+}
+
+#show_all_benefice {
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #666464;
+  padding: 1rem 3rem;
+  cursor: pointer;
+  font-weight: bolder;
+  transition: all 0.2s ease-in-out;
+}
+#show_all_benefice:hover {
+  background: #f3fbfa;
+}
+
+.show {
+  display: flex;
+}
+
+.hide {
+  display: none;
 }/*# sourceMappingURL=adminList.css.map */

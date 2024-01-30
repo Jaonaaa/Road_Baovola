@@ -7,16 +7,39 @@ setUpNavbar();
 let mode = "normal";
 
 handleMode();
+handleShowAllBenefice();
+
+function handleShowAllBenefice() {
+  let btn = document.getElementById("show_all_benefice");
+  btn.addEventListener("click", async () => {
+    let res = await get(`vente/benefices`);
+    console.log(res);
+    addTableData(res.data);
+  });
+}
+
+function toggleShowAll(show) {
+  let btn = document.getElementById("show_all_benefice");
+  if (show) {
+    btn.classList.remove("hide");
+    btn.classList.add("show");
+  } else {
+    btn.classList.remove("show");
+    btn.classList.add("hide");
+  }
+}
 
 function handleMode() {
   let btn = document.getElementById("change_mode");
   btn.addEventListener("click", () => {
     if (mode == "normal") {
       mode = "benefice";
+      toggleShowAll(true);
       createSidePopUp("Mode benefice on", "ok");
     } else if (mode == "benefice") {
       mode = "normal";
       createSidePopUp("Mode normal on", "ok");
+      toggleShowAll(false);
     }
   });
 }
@@ -43,7 +66,6 @@ function addTableData(data) {
   let table = document.createElement("table");
   table.setAttribute("id", "table_result");
   // let table = document.getElementById("table_result");
-
   table.innerHTML =
     mode === "normal"
       ? `
@@ -52,8 +74,7 @@ function addTableData(data) {
   <th>Qualité</th>
   <th>Taille</th>
   <th>Prix</th>
-  </tr>
-  `
+  </tr>`
       : `
   <tr>
   <th>Type</th>
@@ -64,9 +85,7 @@ function addTableData(data) {
   <th>Prix de revient</th>
   <th>Prix matières premières </th>
   <th>Salaire employer </th>
-  </tr>
-  
-  `;
+  </tr>`;
   data.forEach((road) => {
     table.innerHTML +=
       mode === "normal"
