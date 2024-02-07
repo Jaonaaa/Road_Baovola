@@ -440,6 +440,10 @@ td {
   white-space: nowrap;
 }
 
+.right {
+  text-align: right;
+}
+
 .highlight {
   font-weight: bold;
   color: #e74c3c;
@@ -451,4 +455,8 @@ td {
   width: -moz-fit-content;
   width: fit-content;
   margin-bottom: 5rem;
+}
+
+select {
+  background: transparent;
 }/*# sourceMappingURL=index.css.map */

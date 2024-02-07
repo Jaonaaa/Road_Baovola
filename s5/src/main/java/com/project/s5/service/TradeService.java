@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.project.s5.models.Achat;
 import com.project.s5.models.Entreprise;
+import com.project.s5.models.MainOuevre;
 import com.project.s5.models.Materiaux;
 import com.project.s5.models.Movement;
 import com.project.s5.models.PriceMateriaux;
@@ -18,6 +19,7 @@ import com.project.s5.models.Stock;
 import com.project.s5.models.Supplier;
 import com.project.s5.models.Vente;
 import com.project.s5.repository.AchatRepo;
+import com.project.s5.repository.MainOuevreRepo;
 import com.project.s5.repository.MateriauxRepo;
 import com.project.s5.repository.PriceMateriauxRepo;
 import com.project.s5.repository.RoadMateriauxRepo;
@@ -43,6 +45,7 @@ public class TradeService {
     private final RoadMateriauxRepo roadMateriauxRepo;
     private final PriceMateriauxRepo priceMateriauxRepo;
     private final MateriauxRepo materiauxRepo;
+    private final MainOuevreRepo mainOuevreRepo;
 
     public void registerSuupplier(@NonNull Supplier supplier) {
         supplierRepo.save(supplier);
@@ -89,8 +92,12 @@ public class TradeService {
         if (quantity <= 0)
             throw new RuntimeException("Quantité invalide");
         Timestamp now = Timestamp.from(Instant.now());
-        Double price = getPriceProductOnSelling(roadTypeQuality, quantity);
-        Vente vente = Vente.builder().roadTypeQuality(roadTypeQuality).quantity(quantity).price(price).date(now)
+        Double prix_matiere_premiere = getPriceProductOnSelling(roadTypeQuality, quantity);
+        Double prix_de_revient = getPriceEmployer(roadTypeQuality);
+
+        Vente vente = Vente.builder().roadTypeQuality(roadTypeQuality).quantity(quantity)
+                .price(prix_matiere_premiere + prix_de_revient)
+                .date(now)
                 .entreprise(entreprise)
                 .build();
         venteRepo.save(vente);
@@ -108,6 +115,7 @@ public class TradeService {
                     .get();
             priceTotal += roadMaterial.getQuantity() * priceMateriaux.getPrice();// Unit 1 auto
         }
+
         return priceTotal;
     }
 
@@ -149,6 +157,16 @@ public class TradeService {
     public List<RoadMateriaux> getByRoadQuality(RoadTypeQuality roadTypeQuality) {
         List<RoadMateriaux> roadMateriauxs = roadMateriauxRepo.findByRoadTypeQuality(roadTypeQuality);
         return roadMateriauxs;
+    }
+
+    public Double getPriceEmployer(RoadTypeQuality roadTypeQuality) {
+
+        List<MainOuevre> mainOuevre = mainOuevreRepo.findAllByRoadTypeQuality(roadTypeQuality);
+        Double total = 0.0;
+        for (MainOuevre main_oeuvre : mainOuevre) {
+            total += main_oeuvre.getTime_to_work() * main_oeuvre.getOutils().getSalaire();
+        }
+        return total;
     }
 
 }

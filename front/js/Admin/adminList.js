@@ -8,6 +8,7 @@ handleEmployer();
 handlePrixDeVente();
 handleEmployerWorking();
 handleGrades();
+handleAllListRoad();
 let prices_mat = null;
 
 async function getAllMateriaux() {
@@ -163,6 +164,25 @@ function handleEmployer() {
   });
 }
 
+function handleAllListRoad() {
+  let btn = document.getElementById("show_all_road");
+  let container = document.getElementById("road_container_list");
+
+  btn.addEventListener("click", async () => {
+    container.innerHTML = "";
+    let roads = await get("road/type_quality");
+    console.log(roads);
+    let blocks = "";
+    roads.data.forEach((block) => {
+      blocks += `
+          <div class="item">
+            <div class="label">${block.type.name} | ${block.quality.name} | ${block.size.name}</div>
+          </div>
+          `;
+    });
+    container.innerHTML = blocks;
+  });
+}
 function handlePrixDeVente() {
   let btn = document.getElementById("show_price_vente");
   let container = document.getElementById("price_road_container");

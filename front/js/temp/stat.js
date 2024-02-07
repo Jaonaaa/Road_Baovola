@@ -1,4 +1,5 @@
 import { setUpNavbar } from "../components/Navbar.js";
+import { createChart, createTable } from "../utils/MyChart.js";
 import { get } from "../utils/fetchers.js";
 
 setUpNavbar();
@@ -25,7 +26,6 @@ async function handleFilter() {
 function buildChart(datas) {
   let block = document.createElement("div");
   block.classList.add("chart_box");
-  let chart = document.createElement("canvas");
   let types = datas.map((d) => d.typeEntreprise.name);
 
   let filtredData = [];
@@ -38,26 +38,7 @@ function buildChart(datas) {
     filtredData.push(total);
   });
 
-  new Chart(chart, {
-    type: "doughnut",
-    data: {
-      labels: types,
-      datasets: [
-        {
-          label: "Quantité",
-          data: filtredData,
-          borderWidth: 1,
-        },
-      ],
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
-      },
-    },
-  });
+  let chart = createChart(types, filtredData, "doughnut", "Qt");
 
   let box = document.querySelector(".list_graph");
   if (box) {
@@ -70,7 +51,6 @@ function getAll() {
   let btn = document.querySelector(".all");
   btn.addEventListener("click", async () => {
     let datas = await get("client/stats");
-    // console.log(datas);
     cleanTable();
     cleanChart();
     datas.data.forEach((dat) => {
@@ -96,34 +76,18 @@ async function getDataItem(idRoadtypeQuality) {
 }
 
 function buildTable(datas) {
-  let da = "";
+  let rows = [];
   datas.forEach((data) => {
     let total = 0;
     data.ventes.forEach((v) => {
       total += v.quantity;
     });
-    da += `
-        <tbody>
-        <tr>
-          <td>${data.typeEntreprise.name}</td>
-          <td>${total}</td>
-        </tr>
-      </tbody>
-        
-        `;
+    rows.push([data.typeEntreprise.name, total]);
   });
-  let table = `
-  <table id="table_result">
-        <tbody>
-          <tr>
-            <th>Type</th>
-            <th>Quantity</th>
-          </tr>
-        </tbody>
-        ${da}
-      </table>
-  `;
+
+  let table = createTable(["Type", "Quantité"], rows);
+  table.setAttribute("id", "table_result");
 
   let list = document.querySelector(".list_tab");
-  list.innerHTML += table;
+  list.innerHTML += table.outerHTML;
 }

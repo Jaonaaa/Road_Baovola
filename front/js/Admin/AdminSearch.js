@@ -1,6 +1,7 @@
 import { setUpNavbar } from "../components/Navbar.js";
 import { createMiddlePopUp, createSidePopUp } from "../utils/PopUp.js";
 import { get, send } from "../utils/fetchers.js";
+import { formatNumber } from "../utils/format.js";
 
 handleSearch();
 setUpNavbar();
@@ -94,19 +95,19 @@ function addTableData(data) {
         <td>${road.roadTypeQuality.type.name} </td>
         <td>${road.roadTypeQuality.quality.name}</td>
         <td>${road.roadTypeQuality.size.name}</td>
-        <td>${road.price} Ar</td>
+        <td class="right">${formatNumber(road.price)} Ar</td>
     </tr>
         `
         : `
         <tr>
-        <td>${road.roadTypeQuality.type.name} </td>
+        <td >${road.roadTypeQuality.type.name} </td>
         <td>${road.roadTypeQuality.quality.name}</td>
         <td>${road.roadTypeQuality.size.name}</td>
-        <td>${road.benefice} Ar</td>
-        <td>${road.prix_de_vente} Ar</td>
-        <td>${road.prix_de_revient} Ar</td>
-        <td>${road.prix_matiere_premiere} Ar</td>
-        <td>${road.prix_employer} Ar</td>
+        <td class="right">${formatNumber(road.benefice)} Ar</td>
+        <td class="right">${formatNumber(road.prix_de_vente)} Ar</td>
+        <td class="right">${formatNumber(road.prix_de_revient)} Ar</td>
+        <td class="right">${formatNumber(road.prix_matiere_premiere)} Ar</td>
+        <td class="right">${formatNumber(road.prix_employer)} Ar</td>
 
     </tr>
         
